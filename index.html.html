@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#15171C">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Daily Fit">
+<title>Daily Fit</title>
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAADY0lEQVR42u3c3VEjOxSF0ZbKKVC8kAMZEBZBEBYZTA5+cTkIeKdqBtvTPzpba0Vwu/WxkYG5bRnE0/PL10JZ18u5jfDf0cRLUuBNxCTF3YRMUtxNyCSF3YRMUthNyCRF3cRMUthdzIxijZaakEla6y5mkta6i5mkqLuYSYq6i5mkqLuYSYq6e1Uk6Wt9ZcAIK93FTFLUXcwkRe0OTf4d2jpTdaUtNNkLbZ2pvNIWmtyFts5UX2kLTeZCW2cSVtpCk3uHhoigXTdIuXZYaFw5QNAgaLhP84EQCw2CBkGDoBE0CBoEDYIGQf/qz8eb5woz5W8Kfx746/unZxN01nIlHHz68wn6zm+/VQ99hmecPuhH75HVDnyW55w26DU+EFU57LU+/CXFHRP0Fp/sRz7o2Z53mqC3/hHViIc84zPHB73nz1pHOuBZnzsy6CN/YXD04c787HFBj/Kbr6MOdvbnjwl6xF/h7n2o3kFA0NX+FmGtA571uWODTvqjmlsOe7bnnSLomf8yLNHRYR8WtJCFHRG0kIW9Jf9ihSg9/SuWua4dFhoLbaUZ9YwtNBYaBO3a4bphoaFQ0FbaOltoEDSCdu2g4FlaaCy0lWbUM7TQWGgrzahnZ6Gx0CBo1w7XDQsNxYNe8yv+9f3T6m/4PkZ8tyffBue9JiT+C/yTiIWdFHevHqdrxTHXkVHf+anqy8dql1nov0VrjcdY7ZHP4FThpWK1yy+0mJ1JXNAgaAQNggZBg6BB0AgaBA2CBkGDoBE0CBoEDYIGQSNoEDQIGgQNgkbQIGgQNAgaBI2gQdAgaBA0CBpBg6BB0CBoBO0VIGgQNAgaBI2gQdAgaBA0CBpBg6BB0CBoEDSCBkHD8drT88uX14CFBkGDoEHQTBr09XJuXgMJrpdzs9C4coCgYa+g3aNJuD9baFw5oETQrh1Uv25YaFw5oEzQrh1Uvm5YaPKvHFaaqutsoZnjQ6GVpuI6/3OhRU21mF05mOPKYaWpuM43LbSoqRKzKwdRMd8ctJUm4g4taiqt891XDlEzcswP3aFFzagxL8uyPByn/8kjI4X830ELm9FifujK4QrCqDGvstCWmpFGcfV1FTZHfoff7LogbI64qm5+/xU2e37m2u0DnbBFvIdDfkIhbhFHBS1yAW/lG7sybqSacFpfAAAAAElFTkSuQmCC">
+<link rel="icon" type="image/png" sizes="512x512" href="data:image/png;base64,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">
+<style>
+  :root{
+    --bg:#15171C; --card:#1E2129; --card2:#23262F; --text:#EDEBE4;
+    --muted:#868C97; --line:#2C303A; --amber:#E6A15A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;min-height:100%}
+  button{font-family:inherit;color:inherit;background:none;border:none;cursor:pointer}
+  .wrap{max-width:460px;margin:0 auto;padding:20px 16px calc(84px + env(safe-area-inset-bottom))}
+  .mono{font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+
+  /* header */
+  .topbar{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .counter{font-size:12px;color:var(--amber)}
+
+  /* hero card */
+  .hero{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px 16px 16px;position:relative}
+  .hero-date{font-size:14px;color:var(--muted);margin-bottom:14px}
+  .hero-date b{color:var(--text);font-weight:600}
+  .garments{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .garment{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:10px 6px 12px;text-align:center}
+  .garment svg{width:100%;max-width:88px;height:auto;display:block;margin:0 auto}
+  .g-slot{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+  .g-color{font-size:13px;font-weight:600;margin-top:2px}
+
+  .heart{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:var(--card2);border:1px solid var(--line);transition:transform .12s}
+  .heart:active{transform:scale(.9)}
+  .heart svg{width:20px;height:20px;fill:none;stroke:var(--muted);stroke-width:2}
+  .heart.on svg{fill:var(--amber);stroke:var(--amber)}
+
+  /* stepper */
+  .stepper{display:flex;gap:8px;margin:12px 0 18px}
+  .stepper button{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 0;font-size:14px;font-weight:600}
+  .step-arrow{width:52px;font-size:18px;line-height:1;color:var(--muted)}
+  .step-today{flex:1;color:var(--amber)}
+
+  /* calendar */
+  .cal{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px}
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .cal-title{font-size:14px;font-weight:700}
+  .cal-nav{width:34px;height:34px;border-radius:10px;background:var(--card2);border:1px solid var(--line);color:var(--muted);font-size:15px}
+  .dow{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:4px}
+  .dow div{text-align:center;font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;padding:4px 0}
+  .grid{display:grid;grid-template-columns:repeat(7,1fr);grid-auto-rows:46px;gap:3px}
+  .cell{height:46px;overflow:hidden;border-radius:10px;padding:7px 2px 0;text-align:center;border:1px solid transparent;background:transparent;position:relative;vertical-align:top}
+  .cell .dnum{display:block}
+  .cell:not(.empty){cursor:pointer}
+  .cell .dnum{font-size:12px;color:var(--text);line-height:1.5}
+  .cell.today .dnum{color:var(--amber);font-weight:700}
+  .cell.sel{border-color:var(--amber)}
+  .cell.fav{background:rgba(230,161,90,.10)}
+  .cell .fh{position:absolute;top:2px;right:4px;font-size:7px;color:var(--amber)}
+  .dots{display:flex;justify-content:center;gap:2px;margin-top:2px}
+  .dot{width:5px;height:5px;border-radius:50%}
+
+  /* section titles */
+  .sect-title{font-size:20px;font-weight:800;letter-spacing:-.01em;margin-bottom:2px}
+  .sect-sub{font-size:13px;color:var(--muted);margin-bottom:16px}
+
+  /* gallery / favourite cards */
+  .cardlist{display:flex;flex-direction:column;gap:10px}
+  .ocard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;position:relative}
+  .ocard.fav{border-color:var(--amber)}
+  .ocard .heart{top:10px;right:10px;width:36px;height:36px}
+  .ocard-day{font-size:12px;color:var(--muted);margin-bottom:10px}
+  .ocard-day b{color:var(--text)}
+  .mini-garments{display:flex;gap:8px;align-items:flex-end}
+  .mini{flex:1;text-align:center}
+  .mini svg{width:100%;max-width:64px;height:auto;display:block;margin:0 auto}
+  .mini span{display:block;font-size:11px;color:var(--muted);margin-top:4px}
+  .next-line{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .next-line .nd{font-size:12px;color:var(--muted)}
+  .next-line .nd b{display:block;color:var(--text);font-size:13px;margin-top:2px}
+  .go-btn{background:var(--card2);border:1px solid var(--line);color:var(--amber);border-radius:10px;padding:9px 12px;font-size:12px;font-weight:700;white-space:nowrap}
+
+  /* 2-up gallery layout */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .grid2 .ocard{padding:10px 8px}
+  .grid2 .ocard .heart{width:29px;height:29px;top:7px;right:7px;border-radius:9px}
+  .grid2 .ocard .heart svg{width:14px;height:14px}
+  .grid2 .ocard-day{font-size:11px;margin-bottom:8px}
+  .grid2 .mini-garments{gap:4px}
+  .grid2 .mini svg{max-width:50px}
+  .grid2 .mini span{font-size:9px;margin-top:3px}
+
+  /* empty states */
+  .empty{text-align:center;padding:56px 22px;color:var(--muted)}
+  .empty svg{width:44px;height:44px;stroke:var(--muted);fill:none;stroke-width:1.6;margin-bottom:14px}
+  .empty h3{color:var(--text);font-size:16px;margin-bottom:6px}
+  .empty p{font-size:13px;line-height:1.55}
+
+  /* my looks */
+  .add-photo{width:100%;display:flex;align-items:center;justify-content:center;gap:9px;background:var(--card);border:1px dashed var(--line);border-radius:16px;padding:15px;font-size:14px;font-weight:700;color:var(--amber);margin-bottom:14px}
+  .add-photo svg{width:19px;height:19px;stroke:var(--amber);fill:none;stroke-width:2}
+  .add-photo.busy{color:var(--muted)}
+  .add-photo.busy svg{stroke:var(--muted)}
+  .looks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+  .look{aspect-ratio:1/1;border-radius:12px;overflow:hidden;background:var(--card2);border:1px solid var(--line);padding:0}
+  .look img{width:100%;height:100%;object-fit:cover;display:block}
+  .looks-note{font-size:11px;color:var(--muted);text-align:center;margin-top:14px;line-height:1.5}
+
+  /* viewer overlay */
+  .viewer{position:fixed;inset:0;background:rgba(10,11,14,.96);z-index:50;display:none;flex-direction:column}
+  .viewer.open{display:flex}
+  .viewer-top{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;padding-top:calc(14px + env(safe-area-inset-top))}
+  .viewer-date{font-size:13px;color:var(--muted)}
+  .viewer-close{width:38px;height:38px;border-radius:12px;background:var(--card);border:1px solid var(--line);font-size:16px;color:var(--text)}
+  .viewer-img{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:0 10px}
+  .viewer-img img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px}
+  .viewer-bottom{padding:16px;padding-bottom:calc(16px + env(safe-area-inset-bottom))}
+  .del-btn{width:100%;background:rgba(190,74,74,.12);border:1px solid rgba(190,74,74,.4);color:#D98080;border-radius:12px;padding:13px;font-size:14px;font-weight:700}
+
+  /* bottom nav */
+  nav{position:fixed;left:0;right:0;bottom:0;background:rgba(21,23,28,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);z-index:40}
+  .nav-inner{max-width:460px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);padding:6px 8px calc(8px + env(safe-area-inset-bottom))}
+  .tab{display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 0;border-radius:12px;color:var(--muted);position:relative}
+  .tab svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8}
+  .tab span{font-size:10px;font-weight:600;letter-spacing:.02em}
+  .tab.on{color:var(--amber)}
+  .badge{position:absolute;top:3px;left:calc(50% + 6px);min-width:16px;height:16px;border-radius:8px;background:var(--amber);color:#15171C;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 4px}
+
+  .view{display:none}
+  .view.on{display:block}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+
+  <!-- TODAY -->
+  <section id="view-today" class="view on">
+    <div class="topbar">
+      <div class="eyebrow">Today you wear</div>
+      <div class="counter mono" id="counter">#001 / 125</div>
+    </div>
+    <div class="hero">
+      <button class="heart" id="hero-heart" aria-label="Favourite this outfit">
+        <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.6 2.3 4.5 6.2 4.5c2.2 0 3.9 1.2 4.8 3 1-1.8 2.6-3 4.8-3 3.9 0 5.8 4.1 4.2 7.2C19.5 16.3 12 21 12 21z"/></svg>
+      </button>
+      <div class="hero-date" id="hero-date"></div>
+      <div class="garments" id="hero-garments"></div>
+    </div>
+    <div class="stepper">
+      <button class="step-arrow" id="prev-day" aria-label="Previous day">&#8249;</button>
+      <button class="step-today" id="jump-today">Jump to Today</button>
+      <button class="step-arrow" id="next-day" aria-label="Next day">&#8250;</button>
+    </div>
+    <div class="cal">
+      <div class="cal-head">
+        <button class="cal-nav" id="cal-prev" aria-label="Previous month">&#8249;</button>
+        <div class="cal-title" id="cal-title"></div>
+        <button class="cal-nav" id="cal-next" aria-label="Next month">&#8250;</button>
+      </div>
+      <div class="dow"><div>S</div><div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div></div>
+      <div class="grid" id="cal-grid"></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="view-gallery" class="view">
+    <div class="sect-title">Gallery</div>
+    <div class="sect-sub">All 125 outfits, in rotation order.</div>
+    <div class="cardlist grid2" id="gallery-list"></div>
+  </section>
+
+  <!-- FAVOURITES -->
+  <section id="view-favs" class="view">
+    <div class="sect-title">Favourites</div>
+    <div class="sect-sub">Outfits you love, and when they come back around.</div>
+    <div id="favs-body"></div>
+  </section>
+
+  <!-- MY LOOKS -->
+  <section id="view-looks" class="view">
+    <div class="sect-title">My Looks</div>
+    <div class="sect-sub">A photo journal of outfits you actually wore.</div>
+    <button class="add-photo" id="add-look">
+      <svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="14" r="3.4"/></svg>
+      <span id="add-look-label">Add a photo</span>
+    </button>
+    <div id="looks-body"></div>
+  </section>
+
+</main>
+
+<input type="file" id="look-input" accept="image/*" capture="environment" style="display:none">
+
+<!-- full-screen photo viewer -->
+<div class="viewer" id="viewer">
+  <div class="viewer-top">
+    <div class="viewer-date" id="viewer-date"></div>
+    <button class="viewer-close" id="viewer-close" aria-label="Close">&#10005;</button>
+  </div>
+  <div class="viewer-img"><img id="viewer-img" alt="Saved look"></div>
+  <div class="viewer-bottom">
+    <button class="del-btn" id="viewer-del">Delete this photo</button>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <button class="tab on" data-view="today">
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+      <span>Today</span>
+    </button>
+    <button class="tab" data-view="gallery">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>
+      <span>Gallery</span>
+    </button>
+    <button class="tab" data-view="favs" id="tab-favs">
+      <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.6 2.3 4.5 6.2 4.5c2.2 0 3.9 1.2 4.8 3 1-1.8 2.6-3 4.8-3 3.9 0 5.8 4.1 4.2 7.2C19.5 16.3 12 21 12 21z"/></svg>
+      <span>Favourites</span>
+    </button>
+    <button class="tab" data-view="looks" id="tab-looks">
+      <svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="14" r="3.4"/></svg>
+      <span>My Looks</span>
+    </button>
+  </div>
+</nav>
+
+<script>
+/* ============ data ============ */
+var SEQ = [[0,0,0],[4,1,4],[2,2,3],[1,3,1],[3,4,2],[4,0,4],[3,2,2],[1,3,3],[0,4,0],[1,1,1],[2,3,3],[0,4,2],[4,1,1],[3,0,4],[2,2,0],[3,0,2],[0,2,0],[1,4,1],[4,3,3],[0,0,4],[2,1,1],[1,4,2],[4,3,4],[3,2,0],[2,1,3],[0,0,2],[4,3,1],[3,2,3],[1,4,0],[2,1,4],[1,4,3],[2,0,4],[0,2,2],[4,3,0],[3,1,1],[1,4,4],[2,2,2],[4,1,3],[3,0,0],[0,1,1],[4,3,2],[2,2,4],[3,4,0],[0,0,1],[1,1,3],[2,3,4],[1,2,3],[3,0,1],[4,4,2],[0,3,0],[1,0,1],[2,4,2],[3,1,3],[2,3,0],[1,0,4],[4,2,3],[0,3,1],[4,2,2],[2,4,4],[0,1,0],[3,0,3],[4,1,2],[0,4,1],[1,3,0],[3,2,4],[2,3,1],[1,0,3],[4,2,4],[0,1,2],[2,4,0],[3,1,2],[4,2,0],[1,3,4],[0,0,3],[2,4,1],[3,1,0],[2,4,3],[0,3,2],[1,2,4],[4,0,1],[3,3,0],[4,0,3],[1,1,4],[3,4,1],[4,0,2],[3,1,4],[1,2,0],[0,3,3],[2,1,2],[4,4,1],[0,2,3],[2,3,2],[0,2,4],[1,0,0],[3,4,4],[0,1,3],[4,0,0],[3,3,1],[1,2,2],[2,1,0],[4,4,4],[2,0,1],[0,4,3],[3,3,2],[1,2,1],[2,0,3],[1,3,2],[4,4,0],[0,1,4],[3,2,1],[4,4,3],[2,0,0],[1,1,2],[0,3,4],[3,4,3],[0,2,1],[1,0,2],[4,2,1],[3,3,4],[2,2,1],[4,1,0],[2,0,2],[0,4,4],[1,1,0],[3,3,3]];
+
+var COLORS = [
+  {name:"Blue",  hex:"#3B6DD1"},
+  {name:"White", hex:"#F4F1E8"},
+  {name:"Green", hex:"#2F9E5B"},
+  {name:"Black", hex:"#26262B"},
+  {name:"Brown", hex:"#7A4E2E"}
+];
+var SLOTS = ["Top","Pants","Shoes"];
+var FAV_KEY = "msms_outfit_favs_v2";
+
+/* ============ date helpers ============ */
+function dayOfYear(d){
+  return Math.floor((Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) - Date.UTC(d.getFullYear(), 0, 1)) / 86400000) + 1;
+}
+function outfitIndexFor(d){ return (dayOfYear(d) - 1) % 125; }
+function sameDay(a,b){ return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate(); }
+function addDays(d,n){ var x=new Date(d); x.setDate(x.getDate()+n); return x; }
+var WD = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+var MO = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+function fmtDate(d){ return WD[d.getDay()] + ", " + d.getDate() + " " + MO[d.getMonth()] + " " + d.getFullYear(); }
+function fmtShort(d){ return WD[d.getDay()].slice(0,3) + " " + d.getDate() + " " + MO[d.getMonth()].slice(0,3) + " " + d.getFullYear(); }
+function pad3(n){ return ("00"+n).slice(-3); }
+
+/* ============ garment SVG ============ */
+function strokeFor(ci){
+  if (ci === 1) return "#CFCABB";      /* white -> light warm stroke */
+  if (ci === 3) return "#5A5A64";      /* black -> light grey stroke */
+  return "rgba(0,0,0,0.28)";           /* others -> subtle dark stroke */
+}
+var PATHS = {
+  top:   "M33 16 L14 26 L20 44 L30 40 L30 84 L70 84 L70 40 L80 44 L86 26 L67 16 Q62 26 50 26 Q38 26 33 16 Z",
+  pants: "M33 14 L67 14 L67 26 L63 86 L53 86 L50 42 L47 86 L37 86 L33 26 Z",
+  shoes: "M12 68 Q12 55 26 52 L46 47 Q56 44 62 52 L82 61 Q90 64 90 71 L90 78 L12 78 Z M12 72 L90 72"
+};
+function garmentSVG(slot, ci){
+  var type = slot === 0 ? "top" : slot === 1 ? "pants" : "shoes";
+  var c = COLORS[ci];
+  return '<svg viewBox="0 0 100 100" aria-hidden="true"><path d="'+PATHS[type]+'" fill="'+c.hex+'" stroke="'+strokeFor(ci)+'" stroke-width="2.2" stroke-linejoin="round" fill-rule="evenodd"/></svg>';
+}
+function dotStyle(ci){
+  var c = COLORS[ci];
+  var ring = (ci===1) ? "box-shadow:inset 0 0 0 1px #CFCABB;" : (ci===3) ? "box-shadow:inset 0 0 0 1px #5A5A64;" : "";
+  return 'background:'+c.hex+';'+ring;
+}
+
+/* ============ favourites (localStorage) ============ */
+var favs = [];
+try {
+  var raw = localStorage.getItem(FAV_KEY);
+  if (raw) { var arr = JSON.parse(raw); if (Object.prototype.toString.call(arr)==="[object Array]") favs = arr.filter(function(n){ return typeof n==="number" && n>=0 && n<125; }); }
+} catch(e){}
+function saveFavs(){ try { localStorage.setItem(FAV_KEY, JSON.stringify(favs)); } catch(e){} }
+function isFav(i){ return favs.indexOf(i) !== -1; }
+function toggleFav(i){
+  var p = favs.indexOf(i);
+  if (p === -1) favs.push(i); else favs.splice(p,1);
+  saveFavs();
+  renderToday(); renderCalendar(); renderBadges();
+  if (galleryBuilt) syncGalleryHearts();
+  renderFavs();
+}
+
+/* ============ state ============ */
+var selected = new Date();      /* selected day in Today tab */
+var calMonth = new Date(selected.getFullYear(), selected.getMonth(), 1);
+var galleryBuilt = false;
+
+/* ============ Today view ============ */
+function renderToday(){
+  var idx = outfitIndexFor(selected);
+  var o = SEQ[idx];
+  document.getElementById("counter").textContent = "#" + pad3(idx+1) + " / 125";
+  document.getElementById("hero-date").innerHTML = "<b>" + fmtDate(selected) + "</b>" + (sameDay(selected,new Date()) ? "" : " &middot; day " + (idx+1) + " of the cycle");
+  var html = "";
+  for (var s=0; s<3; s++){
+    html += '<div class="garment">' + garmentSVG(s, o[s]) +
+            '<div class="g-slot">'+SLOTS[s]+'</div><div class="g-color">'+COLORS[o[s]].name+'</div></div>';
+  }
+  document.getElementById("hero-garments").innerHTML = html;
+  var h = document.getElementById("hero-heart");
+  if (isFav(idx)) h.classList.add("on"); else h.classList.remove("on");
+}
+
+function renderCalendar(){
+  document.getElementById("cal-title").textContent = MO[calMonth.getMonth()] + " " + calMonth.getFullYear();
+  var first = new Date(calMonth.getFullYear(), calMonth.getMonth(), 1);
+  var days = new Date(calMonth.getFullYear(), calMonth.getMonth()+1, 0).getDate();
+  var today = new Date();
+  var html = "";
+  for (var b=0; b<first.getDay(); b++) html += '<div class="cell empty"></div>';
+  for (var d=1; d<=days; d++){
+    var dt = new Date(calMonth.getFullYear(), calMonth.getMonth(), d);
+    var idx = outfitIndexFor(dt);
+    var o = SEQ[idx];
+    var cls = "cell";
+    if (sameDay(dt,today)) cls += " today";
+    if (sameDay(dt,selected)) cls += " sel";
+    if (isFav(idx)) cls += " fav";
+    html += '<button class="'+cls+'" data-d="'+d+'">' +
+            (isFav(idx) ? '<span class="fh">&#9829;</span>' : '') +
+            '<span class="dnum">'+d+'</span>' +
+            '<span class="dots"><span class="dot" style="'+dotStyle(o[0])+'"></span><span class="dot" style="'+dotStyle(o[1])+'"></span><span class="dot" style="'+dotStyle(o[2])+'"></span></span>' +
+            '</button>';
+  }
+  document.getElementById("cal-grid").innerHTML = html;
+}
+
+function selectDate(d, followMonth){
+  selected = d;
+  if (followMonth !== false) calMonth = new Date(d.getFullYear(), d.getMonth(), 1);
+  renderToday(); renderCalendar();
+}
+
+document.getElementById("cal-grid").addEventListener("click", function(e){
+  var cell = e.target.closest ? e.target.closest(".cell") : null;
+  if (!cell || cell.classList.contains("empty")) return;
+  var d = parseInt(cell.getAttribute("data-d"), 10);
+  selectDate(new Date(calMonth.getFullYear(), calMonth.getMonth(), d));
+});
+document.getElementById("prev-day").addEventListener("click", function(){ selectDate(addDays(selected,-1)); });
+document.getElementById("next-day").addEventListener("click", function(){ selectDate(addDays(selected, 1)); });
+document.getElementById("jump-today").addEventListener("click", function(){ selectDate(new Date()); });
+document.getElementById("cal-prev").addEventListener("click", function(){ calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth()-1, 1); renderCalendar(); });
+document.getElementById("cal-next").addEventListener("click", function(){ calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth()+1, 1); renderCalendar(); });
+document.getElementById("hero-heart").addEventListener("click", function(){ toggleFav(outfitIndexFor(selected)); });
+
+/* ============ Gallery ============ */
+function miniCard(idx, withNext){
+  var o = SEQ[idx];
+  var html = '<div class="ocard'+(isFav(idx)?' fav':'')+'" data-idx="'+idx+'">' +
+    '<button class="heart'+(isFav(idx)?' on':'')+'" data-fav="'+idx+'" aria-label="Favourite outfit '+(idx+1)+'">' +
+    '<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.6 2.3 4.5 6.2 4.5c2.2 0 3.9 1.2 4.8 3 1-1.8 2.6-3 4.8-3 3.9 0 5.8 4.1 4.2 7.2C19.5 16.3 12 21 12 21z"/></svg></button>' +
+    '<div class="ocard-day">Day <b>'+(idx+1)+'</b> of 125</div>' +
+    '<div class="mini-garments">';
+  for (var s=0; s<3; s++){
+    html += '<div class="mini">' + garmentSVG(s,o[s]) + '<span>'+COLORS[o[s]].name+' '+SLOTS[s].toLowerCase()+'</span></div>';
+  }
+  html += '</div>';
+  if (withNext){
+    var nd = nextOccurrence(idx);
+    html += '<div class="next-line"><div class="nd">Comes around next on<b>'+fmtShort(nd)+'</b></div>' +
+            '<button class="go-btn" data-go="'+nd.getTime()+'">View that day</button></div>';
+  }
+  html += '</div>';
+  return html;
+}
+function renderGallery(){
+  var html = "";
+  for (var i=0; i<125; i++) html += miniCard(i,false);
+  document.getElementById("gallery-list").innerHTML = html;
+  galleryBuilt = true;
+}
+function syncGalleryHearts(){
+  var cards = document.getElementById("gallery-list").children;
+  for (var i=0; i<cards.length; i++){
+    var idx = parseInt(cards[i].getAttribute("data-idx"),10);
+    var on = isFav(idx);
+    cards[i].classList.toggle("fav", on);
+    var h = cards[i].querySelector(".heart");
+    if (h) h.classList.toggle("on", on);
+  }
+}
+
+/* ============ Favourites ============ */
+function nextOccurrence(idx){
+  var d = new Date();
+  for (var i=0; i<=740; i++){
+    var t = addDays(d,i);
+    if (outfitIndexFor(t) === idx) return t;
+  }
+  return d;
+}
+function renderFavs(){
+  var body = document.getElementById("favs-body");
+  if (!favs.length){
+    body.innerHTML = '<div class="empty">' +
+      '<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.6 2.3 4.5 6.2 4.5c2.2 0 3.9 1.2 4.8 3 1-1.8 2.6-3 4.8-3 3.9 0 5.8 4.1 4.2 7.2C19.5 16.3 12 21 12 21z"/></svg>' +
+      '<h3>Nothing saved yet</h3><p>Tap the heart on any outfit in Today or the Gallery, and it will be waiting for you here.</p></div>';
+    return;
+  }
+  var sorted = favs.slice().sort(function(a,b){ return a-b; });
+  var html = '<div class="cardlist">';
+  for (var i=0; i<sorted.length; i++) html += miniCard(sorted[i], true);
+  html += '</div>';
+  body.innerHTML = html;
+}
+
+/* shared clicks: hearts in cards + "view that day" buttons */
+document.addEventListener("click", function(e){
+  var t = e.target;
+  var favBtn = t.closest ? t.closest("[data-fav]") : null;
+  if (favBtn){ toggleFav(parseInt(favBtn.getAttribute("data-fav"),10)); return; }
+  var go = t.closest ? t.closest("[data-go]") : null;
+  if (go){
+    selectDate(new Date(parseInt(go.getAttribute("data-go"),10)));
+    switchView("today");
+  }
+});
+
+/* ============ badges ============ */
+var looksCount = 0;
+function renderBadges(){
+  setBadge("tab-favs", favs.length);
+  setBadge("tab-looks", looksCount);
+}
+function setBadge(id, n){
+  var tab = document.getElementById(id);
+  var b = tab.querySelector(".badge");
+  if (n > 0){
+    if (!b){ b = document.createElement("span"); b.className = "badge"; tab.appendChild(b); }
+    b.textContent = n > 99 ? "99+" : n;
+  } else if (b) tab.removeChild(b);
+}
+
+/* ============ My Looks — IndexedDB ============ */
+var DB_NAME = "dailyfit_looks", STORE = "looks", db = null;
+function openDB(cb){
+  if (db) { cb(db); return; }
+  if (!("indexedDB" in window)) { cb(null); return; }
+  try {
+    var req = indexedDB.open(DB_NAME, 1);
+    req.onupgradeneeded = function(ev){
+      var d = ev.target.result;
+      if (!d.objectStoreNames.contains(STORE)) d.createObjectStore(STORE, { keyPath:"id", autoIncrement:true });
+    };
+    req.onsuccess = function(ev){ db = ev.target.result; cb(db); };
+    req.onerror = function(){ cb(null); };
+  } catch(e){ cb(null); }
+}
+function addLook(dataURL, cb){
+  openDB(function(d){
+    if (!d) { cb(false); return; }
+    try {
+      var tx = d.transaction(STORE, "readwrite");
+      tx.objectStore(STORE).add({ img:dataURL, ts:Date.now() });
+      tx.oncomplete = function(){ cb(true); };
+      tx.onerror = function(){ cb(false); };
+    } catch(e){ cb(false); }
+  });
+}
+function getLooks(cb){
+  openDB(function(d){
+    if (!d) { cb([]); return; }
+    try {
+      var out = [];
+      var tx = d.transaction(STORE, "readonly");
+      var cur = tx.objectStore(STORE).openCursor();
+      cur.onsuccess = function(ev){
+        var c = ev.target.result;
+        if (c){ out.push(c.value); c.continue(); }
+        else { out.sort(function(a,b){ return b.ts - a.ts; }); cb(out); }
+      };
+      cur.onerror = function(){ cb([]); };
+    } catch(e){ cb([]); }
+  });
+}
+function deleteLook(id, cb){
+  openDB(function(d){
+    if (!d) { cb(false); return; }
+    try {
+      var tx = d.transaction(STORE, "readwrite");
+      tx.objectStore(STORE).delete(id);
+      tx.oncomplete = function(){ cb(true); };
+      tx.onerror = function(){ cb(false); };
+    } catch(e){ cb(false); }
+  });
+}
+
+/* compress photo via off-screen canvas */
+function compressImage(file, cb){
+  var reader = new FileReader();
+  reader.onload = function(){
+    var img = new Image();
+    img.onload = function(){
+      try {
+        var maxW = 900;
+        var scale = Math.min(1, maxW / img.width);
+        var w = Math.max(1, Math.round(img.width * scale));
+        var h = Math.max(1, Math.round(img.height * scale));
+        var cv = document.createElement("canvas");
+        cv.width = w; cv.height = h;
+        cv.getContext("2d").drawImage(img, 0, 0, w, h);
+        cb(cv.toDataURL("image/jpeg", 0.72));
+      } catch(e){ cb(null); }
+    };
+    img.onerror = function(){ cb(null); };
+    img.src = reader.result;
+  };
+  reader.onerror = function(){ cb(null); };
+  reader.readAsDataURL(file);
+}
+
+var looksCache = [];
+function renderLooks(){
+  getLooks(function(items){
+    looksCache = items;
+    looksCount = items.length;
+    renderBadges();
+    var body = document.getElementById("looks-body");
+    if (!items.length){
+      body.innerHTML = '<div class="empty">' +
+        '<svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="14" r="3.4"/></svg>' +
+        '<h3>No looks yet</h3><p>Snap a photo of what you actually wore today. Photos stay on this device and browser only &mdash; nothing is uploaded anywhere.</p></div>';
+      return;
+    }
+    var html = '<div class="looks-grid">';
+    for (var i=0; i<items.length; i++){
+      html += '<button class="look" data-look="'+items[i].id+'"><img src="'+items[i].img+'" alt="Saved look"></button>';
+    }
+    html += '</div><div class="looks-note">Saved to this device and browser only &mdash; no account, no sync.</div>';
+    body.innerHTML = html;
+  });
+}
+
+var fileInput = document.getElementById("look-input");
+var addBtn = document.getElementById("add-look");
+addBtn.addEventListener("click", function(){ fileInput.click(); });
+fileInput.addEventListener("change", function(){
+  var f = fileInput.files && fileInput.files[0];
+  fileInput.value = "";
+  if (!f) return;
+  addBtn.classList.add("busy");
+  document.getElementById("add-look-label").textContent = "Saving\u2026";
+  compressImage(f, function(dataURL){
+    function done(){
+      addBtn.classList.remove("busy");
+      document.getElementById("add-look-label").textContent = "Add a photo";
+    }
+    if (!dataURL){ done(); return; }
+    addLook(dataURL, function(){ done(); renderLooks(); });
+  });
+});
+
+/* viewer */
+var viewer = document.getElementById("viewer");
+var viewerId = null;
+document.getElementById("looks-body").addEventListener("click", function(e){
+  var b = e.target.closest ? e.target.closest("[data-look]") : null;
+  if (!b) return;
+  var id = parseInt(b.getAttribute("data-look"),10);
+  var item = null;
+  for (var i=0; i<looksCache.length; i++) if (looksCache[i].id === id) item = looksCache[i];
+  if (!item) return;
+  viewerId = id;
+  document.getElementById("viewer-img").src = item.img;
+  var d = new Date(item.ts);
+  document.getElementById("viewer-date").textContent = "Saved " + fmtShort(d) + ", " +
+    ("0"+d.getHours()).slice(-2) + ":" + ("0"+d.getMinutes()).slice(-2);
+  viewer.classList.add("open");
+});
+document.getElementById("viewer-close").addEventListener("click", function(){ viewer.classList.remove("open"); viewerId = null; });
+document.getElementById("viewer-del").addEventListener("click", function(){
+  if (viewerId === null) return;
+  deleteLook(viewerId, function(){
+    viewer.classList.remove("open");
+    viewerId = null;
+    renderLooks();
+  });
+});
+
+/* ============ tabs ============ */
+function switchView(name){
+  var tabs = document.querySelectorAll(".tab");
+  for (var i=0; i<tabs.length; i++) tabs[i].classList.toggle("on", tabs[i].getAttribute("data-view")===name);
+  var views = document.querySelectorAll(".view");
+  for (var j=0; j<views.length; j++) views[j].classList.toggle("on", views[j].id === "view-"+name);
+  if (name === "gallery" && !galleryBuilt) renderGallery();
+  if (name === "favs") renderFavs();
+  if (name === "looks") renderLooks();
+  window.scrollTo(0,0);
+}
+var tabEls = document.querySelectorAll(".tab");
+for (var ti=0; ti<tabEls.length; ti++){
+  tabEls[ti].addEventListener("click", function(){ switchView(this.getAttribute("data-view")); });
+}
+
+/* refresh "today" if the app stays open across midnight / regains focus */
+document.addEventListener("visibilitychange", function(){
+  if (!document.hidden){ renderCalendar(); if (sameDay(selected, new Date())) renderToday(); }
+});
+
+/* ============ boot ============ */
+renderToday();
+renderCalendar();
+renderBadges();
+renderLooks(); /* preloads count badge */
+</script>
+</body>
+</html>
